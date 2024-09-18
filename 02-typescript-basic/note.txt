@@ -1,0 +1,158 @@
+Bagian 1 Pegantar
+
+1. Pendahuluan:
+
+2. Slide dan Source Code:
+	- Slide: https://docs.google.com/presentation/d/1r1UK4sSyAkH2h0EIym3PXOtJN9YsuV8clWaTJw_Ns4E/edit?usp=sharing
+	- Source Code : https://github.com/ProgrammerZamanNow/belajar-typescript-dasar
+
+3. Discord Group:
+	- Group Diskusi Discord : https://discord.gg/pEgSFrpPSv
+
+4. Pengenalan TypeScript:
+
+5. Membuat Project:
+
+6. Setup TypeScript Project:
+
+7. Say Hello Function:
+
+8. Kompilasi TypeScript:
+
+9. Tipe Data Primitif:
+
+10. Babel TypeScript:
+	- npx tsc --watch => Kompilasi secara realtime
+
+11. Tipe Data Array
+	- tipe data readonly(tidak bisa diubah lagi)
+	- tipe data TUPLE juga disebut readonly (yang array yang jumlahnya sudah ditentukan & isi tipenya juga sudah ditentuka(tidak bisa diubah))
+
+12. Tipe Data Any:
+	- tipe data Any yaitu tipe data bebas atau tidak ada pegecekan seperti javascript tapi lakukan Ketika urgent (butuh dinamis) aja jangan kebanyakan tipe data any
+
+13. Union Type:
+	- tipe data yang bisa variable yang bisa berubah bentuk tipe data
+	- saat membuat Union Type berhati-hati Ketika memanggil method terhadap variable
+	- baik Ketika melakukan pengecekan tipe data terlebih dahulu menggunakan typeof
+
+14. Type Alias:
+	- Menggunakan tipe data Any sebenarnya tidak di rekomandasikan
+	- Direkomandasikan tipe data alias daripda mengunakan tipe data any
+	- type alias juga bisa untuk Union Type
+	- jangan gunakan tipe data any lagi tapi harus wajib menggunkan tipe data alias
+
+15. Object Type:
+	- kalau object sederhana atau dikit pakai tipe data object
+	- jika kalau kompleks jangan pakai tipe data object tapi pakai tipe data alias
+
+16. Optional Properties:
+	- kadaang-kadang tidak semua attribute itu wajib di isi nilainya
+	- untuk opsional properties bisa dengan tambhakan tanda ?(tanya)
+
+17. Enum:
+	- tipe data Enum yaitu tipe data yang nilainya sudah pasti
+	- tipe data ini tidak dimiliki oleh javascript
+	- secara default tipe data Enum akan dikonversi menjadi string di JavaSctipt, namun bisa juga dikonversi menjadi number
+
+18. Null dan Undefined:
+	- sangat menggunakan tanda ?(tanya) pada variable atau parameter, secara otomatis kita bisa mengirim data undefined
+	- dan kadang-kadng aad kasus kita juga ingin mengirim data null, pada kasus ini juga bisa menggunakan tipe data null
+	- jadi opsional data nya bisa berupa undefined dan null
+
+19. Interface:
+	- interface cara lain melakukan deklarasi data selain menggunakan type alias
+	- Ketika ada tipe data yang kompleks lebih baik menggunakan interface daripada tipe alias
+	- properties dapat dijadikan readonly yang artinya tidak bisa diubah lagi
+
+20. Function Interface:
+	- di typescript bisa membuat deklarasi function dalam bentuk interface
+	- kalau di type script harus ditentukan return valuenya
+	- deklarasi function mengggunakan interface seperti yang sudah diterapkan di codingan
+
+21. Indexable Interface:
+	- interface juga bisa digunkan untuk membuat tipe data dengan jenis yang memiliki index seperti Array atau Object
+
+22. Extending Interface:
+	- interface bisa melajutkan (extends) ke interface lain
+	- jadi secara otomatis attribute interface yang dilajutkan dimiliki juga oleh interface tersebut
+	- ini membuat lebih muda Ketika membuat tipe data yang kompleks
+
+23. Function di Interface:
+	- implementasi dari interface di JavaScript sebenarnya adalah sebuah object
+	- di interface bisa juga menambhakan function sebagai attribute di object
+
+24. Intersection Types:
+	- intersection yaitu cara membuat tipe data baru dengan cara menggabungkan dua tipe data lain
+	- hal ini sangat cocok Ketika kita tidak bisa melakukan extends pada interface
+	- kita bisa membuat type dengan menggunkan kata kunci & (dan)
+
+25. Type Assertions:
+	- kadang-kadng kita sering berada pada situasi dimana kita tahu tipe data yang kita gunakan namun TypeScript itu tidak tahu tipe data tersbut
+	- biasanya pada kasus ini menngunakan kode dari javascript sehingga membuat return valuenya itu berupa tipe data any
+	- pada kasus ini kita bisa melakukan konversi ke tipe data yang kita mengggunakan kata kunci as dan ini disebut dengan type aasertions
+	- saat menggunkan type assertions ini nah sebenarnya typescript itu tidak menghiraukan apakah benar data isinya seperti person atau tidak atau harus cek terlebih dahulu datanya apakah ada atau tidak
+	- hati-hati Ketika melakukan konversi karena tidak ketahuan datanya
+
+26. Function:
+	- sama seperti di javascript, typescript juga mendukung pembuatan function
+	- cara pembuatan function di typescript pun sama dengan di javascript
+	- salah satu yang membedakan yaitu pada parameter kita perlu menentukan tipe data, dan pada function kita juga perlu menentukan tipe data return valuenya
+	- kalau tidak mengembalikan value bisa menggunakan tipe data void atau tidak perlu menyebutkan sama sekali seperti di javascript
+
+27. Function Parameter:
+	- sama seperti di javascript, function di typescript bisa memiliki banyak parameter, rest parameter(variable argument) atau sampai default value
+	- di typescript setiap parameter wajib diisi, kecuali kita tentukan sebagai optional menggunakan ? (tanda tanya)
+	- jadi rest parameter itu tipe datanya harus array
+
+28. Function Overloading:
+	- function overloading kemampuan untuk membuat function dengan nama yang sama, namun dengan parameter input yang berbeda
+	- di javascript membuat satu function dengan input data yang berbeda dan output yang bisa menghasilkan data yang berbeda sudah biasa dilakukan
+	- namun kadang bisa membuat function tidak aman, karena bisa menghasilkan berbeda-beda tipe data, bahkan parameter pun bisa berbeda-beda tipe datanya padahal jumlahnya sama
+	- typescript mampu buat function overloading, agar pembuatan function seperti ini lebih aman dilakukan
+
+29. Function Sebagai Parameter:
+	- di typescript juga bisa gunakan function sebagai parameter 
+	- biasanya Ketika memanggil function yang membutuhkan callback
+	- pada typescript parameter yang berupa function perlu kita beri tahu bahwa parameter tersebut adalah function
+	- harus di tentukan function dengan parameter apa? dan return valuenya apa?
+	- sebenarnya kita bisa gunakan function interface sebagai parameternya kalau teman-teman mau, cumin kadang-kadang pada kasus sederhana lumayan ribet kalau harus bikin sebuah interface dulu atau bisa langsung sebutkan pada parameter nya jumlah parameter dan return value function yang dibutuhkan
+
+30. If Statement:
+	- sama seperti di javascript, di typescript juga kita bisa melakukan if statement
+	- if statement di typescript sama sperti if statement di javascript
+
+31. Ternary Operator:
+	- ternary operator yang dilakukan di javascript juga bisa dilakukan di typescript
+
+32. Switch Statement:
+	- pengunaan switch statement di typescript juga sama seperti di javascript
+
+33. For Loop:
+	- perulangan for di typescript sama aja seperti perulangan for di javascript atau pegunnaanya sama seperti di javascript
+	- typescript mendukung semua for loop seperti for loop biasa, for in, dan for of
+
+34. While Loop:
+	- typescript juga mendukung perulangan while loop seperti di javascript 
+
+35. Do While Loop:
+	- typescript juga mendukung perulangan do while loop seperti di javascript
+
+36. Break dan Continue:
+	- seperti di javaScript pada perulangan while atau do while kita sering menggunkan kata kunci break dan continue
+	- hal ini juga bisa dilakukan di typescript
+
+36. Break dan Continue:
+	- seperti di javaScript pada perulangan while atau do while kita sering menggunkan kata kunci break dan continue
+	- hal ini juga bisa dilakukan di typescript
+
+37. JavaScript Feature:
+	- semua fitur yang pernah kita bahas di kelas javascript bisa dilakukan di typescript
+	- seperti operator matematika, perbandingan, logika, string template, optional chaining, with statement, default parameter, function generator, geter setter, destructuring, modules, standard library dan lain-lain
+	- yang membedakan pada fitur TypeScript yaitu karena Strongly Type, maka kita harus tentukan tipe data dari tiap variable dan parameter. Contoh nya jika teman-teman membuat sebuah function parameter nya harus jelas tipe datanya apa? return valuenya juga harus jelas tipe datanya apa? kalau teman-teman misalnya tipe datanya memang bisa berubah rubah teman-teman bisa menggunakan tipe data any.
+	- kalau misalnya teman-teman menggunkan TypeScript diusahakan semaksimal mungkin menghindari peggunaan tipe data ANY. dan jika memang ada data yang spesifik ya teman-teman bikin interfacenya untuk tipe data tersebut
+
+38. Materi Selajutnya: 
+	- TypeScript Object
+	- TypeScript Generic
+	- TypeScript Decorator
