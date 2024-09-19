@@ -11,6 +11,11 @@ describe("Properties", () => {
       this.id = id;
       this.name = name;
     }
+
+    sayHello(name: string): void {
+      console.info(`Hello ${name}, my name is ${this.name}`);
+    }
+
     // kode: properties default value
     // constructor(id: number) {
     //   this.id = id;
@@ -29,5 +34,10 @@ describe("Properties", () => {
     console.info(customer.name);
     console.info(customer.age);
     console.info(customer);
+  });
+
+  it("should can have methods", () => {
+    const customer = new Customer(1, "Gilbert");
+    customer.sayHello("Budi");
   });
 });
