@@ -170,3 +170,8 @@ Bagian 2 TypeScript Object Oriented Programming
 	- namespace ini biasanya digunakan untuk mengorganisir kode Ketika dalam satu satu module terdapat banyak sekali kode, sehingga bisa kita Kelola di dalam satu module itu ke dalam namespace 
 	- nah kalau module kita anggap sebagai sebuah folder anggap saja name space adalah sub foldernya di dalam si module tersebut
 	- nah untuk membuat namespace, kita bisa gunakan kata kunci namespace, dan kita bisa tambahkan class atau function dan lain-lain di dalam namespace tersebut, nah tapi nanti Ketika kita mau aksesnya isi dari class atau function atau misalnya variable di dalam namepspace tersebut kita harus sebutkan dulu nama namespace nya di depan
+
+    63. Materi Selanjutnya:
+	- typescript generic
+	- typescript decorator
+	- studi kasus node js menggunkan typescript
