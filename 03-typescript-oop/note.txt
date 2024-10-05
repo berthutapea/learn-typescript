@@ -1,0 +1,172 @@
+Bagian 2 TypeScript Object Oriented Programming
+
+39. Slide dan Source Code:
+	- https://docs.google.com/presentation/d/1mnfyjjuhcI6_cfRfKsMktXGt3V0aF9crztwz_HjnFpc/edit?usp=sharing
+	- Source Code : https://github.com/ProgrammerZamanNow/belajar-typescript-oop
+
+40. Pendahluan
+
+41. Pengenalan Object Oriented Programming:
+	- object oriented programming itu adalah sudut padang Bahasa pemograman yang berkonsep "objek" makanya berorientasi objek
+	- ada banyak sudut padang Bahasa pemograman, namun oop adalah yang sangat popular saat ini	
+	- ada beberapa istilah yang perlu diingat dan dimegerti dalam OOP yang pertama object dan yang kedua class	
+	- object adalah data yang berisi field/properties/attributes dan method/function/behavior
+	- class adalah blueprint/prototype/cetakan untuk membuat object, object tidak ada Ketika tidak dibuat class terlebih dahulu atau blueprint
+	- class ini berisi deklarasi atau spesifikasi semua field/properties/attributes dan method/function/behavior yang nanti akan dimiliki object
+	- setiap object selalu dibuat dari class
+	- dan sebuah class bisa membuat object tanpa batas
+	- jadi dari satu class itu bisa dibuat object beberapa kali tanpa batasan
+	- implementasi oop di typescript sebenarnya akan di terjemahkan menjadi kode javascript
+	- dan javascript sendiri sebenarnya sejak awal dibuat sebagai Bahasa procedural, bukan Bahasa pemogrman berorientasi objek
+	- jadi sebenarnya javascript itu berbasis prototype bukan berbasi object oriented programming
+	- oleh karena itu, implementasi oop di javascript memang tidak sedatail Bahasa pemograman lain yang memang dari awal merupakan Bahasa pemograman oop seperti di java atau c++
+	- sebenarnya untuk oop di typescript hamper sama dengan di oop di javascript, oleh karena itu di awal saya wajibkan untuk sudah mengikuti kelas javascript, karena disana jelas dibahas tentang oop di javascript.
+
+42. Membuat project: 
+	- Buat folder belajar-typescript-oop
+	- npm init
+	- Buka package.json, dan tambah type module
+	- npm install --save-dev jest @types/jest
+	- npm install --save-dev babel-jest @babel/preset-env
+	- https://babeljs.io/setup#installation
+	- npm install --save-dev typescript
+	- npx tsc --init
+	- Semua konfigurasi akan dibuat di file tsconfig.json
+	- Ubah “module” dari “commonjs” menjadi “ES6”
+	- https://jestjs.io/docs/getting-started#using-typescript 
+	- npm install --save-dev @babel/preset-typescript
+	- npm install --save-dev ts-jest
+
+43. Class:
+	- untuk membuat class di typescript kita bisa menggunkan kata kunci class, sama seperti di javascript
+	- cara membuat object dari class pun cukup menggunkan kata kunci new, sama juga seperti di javascript
+
+44. Constructor:
+	- constructor adalah method atau function yang dipanggil Ketika pertama kali object dibuat dari class
+	- constructor itu sama seperti function biasanya kita bisa memiliki parameter
+	- yang membedakan adalah pada constructor kita tidak perlu mengembalikan value
+	- kenapa tidak mengembalikan value? karena memang valuenya yang dibuat adalah si classnya
+	- saat kita memanggil new customer() dia memanggil constructor nya 
+	- constructor itu mirip sebuah functionnya jika teman-teman menambahkan parameter itu juga bisa
+
+45. Properties:
+	- properties/field/attribute yaitu yang dimiliki class nya
+	- pada javascript kita bisa langsung saja membuat atribut tanpa harus mendeklarasikan atributnya terlebih dahulu
+	- nah kalau di typescript kita perlu mendeklarasikan properties/field nya terlebih dahulu beserta akan dengan tipe data yang akan di gunakannya
+	- sama seprti Ketika membuat attribute di type atau interface kita juga bisa menjadikan propertie sebagai optional, atau bahkan mandatory atau dia readonly
+	- jadi kalau optional tinggal tambhkan ?(tanda tanya) kalau dia tidak menambakan ?(tanda tanya) artinya dia mandatory jadi wajib diisi atau kalau ingin menambhkan readonly jadi dia bisa diubah dalam constructor itu dia tidak bisa diubah lagi
+	- Ketika properties yang mandatory itu wajub ditambhakan nilainya dibagian constructor termasuk yang readonly
+	- selain itu properties juga punya yang Namanya fitur default value, jadi seperti di parameternya, nah parameter kan bisa mempunyai default value nah termasuk juga di properties   
+	- properties juga bisa memiliki default value, kita bisa tambahkan menggunkan operator = (sama dengan) pada properties yang ingin kita tambahkan default valuenya
+
+46. Method:
+	- selain properties didalam class kita juga bisa memiliki function atau method kalau function di dalam class itu sering disebut method
+	- jadi kalau function itu berdiri sendiri dan kalau method itu function di dalam class
+	- cara pembuatannya sebenarnya sama seperti di javascript, nah hanya saja pada typescript kita harus tentukan tipe data parameter nya dan return value nya tipe datanya apa? seperti pembuatan function yang sudah kita Bahasa di typescript dasar
+	- nah jadi teman-teman tambahkan method di dalam class nya
+
+47. Getter dan Setter:
+	- sampai sekarang Ketika kita ingin mengubah data properties kita bisa langsung gunakan operator = (sama dengan) dan Ketika kita ingin mengambil datanya kita cukup gunakan tanda . (titik) seperti di javascript
+	- javascript memiliki fitur Bernama getter dan setter, begitu juga di typescript dimana kita bisa membuat method untuk mengubah properties dan juga method untuk mengambil data di properties nya
+	- karena bentuknya adalah sebuah method, maka kita bisa menambhkan validasi apapun itu di dalam si methodnya sebelum properties aslinya itu diubah atau diambil
+	- jadi kesimpulannya Ketika mau mengubah cara mengambil data properties atau mengubah properties caranya bisa menggunakan getter dan juga setter
+
+48. Inheritance:
+	- sama seperti di javascript di typescript juga mendukung pewarisan atau inheritance antar class menggunakan kata kunci extends
+	- secara otomatis semua properties dan method yang ada di parent classnya akan diwariskan ke childnya classnya jadi semuanya yang ada di parent nya atau orangtuanya otomatis dia ada di childnya atau di anak-anaknya
+	- pewarisan di typescript sama seperti di javascript hanya bisa memiliki satu parent classnya jadi tidak bisa memiliki lebi satu parent 
+	- nah tapi satu parent class bisa memiliki banyak sekali child classnya
+
+49. Interface Inheritance:
+	- dibahas pemograman cotohnya seperti java, kadang-kadang interface itu biasa digunkan sebgai kontrak untuk class nya
+	- di typescript hal ini juga bisa dilakukan jadi walaupun sebelumnya di typescript dasar kita bisa gunakan interface sebagai data istilahnya kotrak data tapi sebnarnya interface juga bisa digunakan sebagai kontrak class, jadi kita bisa membuat class yang nanti mengikuti kontrak sebuah interface, caranya kita harus menngunakan kata kunci nya adalah implements bukan lagi extends
+	- kalau extend adalah turunan dari sebuah class kalau implements daia mengikuti kontrak dari sebuah interface 
+	- karena sebenarnya ini bukanlah pewarisan oleh karena itu dia menngunakan implemnts, nah kita bisa melakukan implements ke lebih dari satu interface, jadi kalau kita menggunakan extends atau pewarisan atau inheritance itu cumin bisa ke saru parent class
+	- kalau kita menngunakan implements atau misalnya itu mengikuti kontrak, nah kita bisa menggunakan lebih dari satu interface jadi kita bisa bikin sebuah class dimana dia bisa mengikuti kontark lebih dari satu interface
+
+50. Super Constructor:
+	- pada kasus peawarisan antar class kadang-kadang didalam class childnya kita ingin membuat constructor juga jadi di parent nya sudah ada tapi didalam childnya ingin juga 
+	- baik mungkin isi dari constructor nya hampir mirip seperti di parent atau mungkin berbeda termasuk jumlah paremeternya 
+	- kalau kasus nya membuat constructor di dalam child class maka secara otomatis kita wajib memanggil constructor di parent class nya
+	- hal ini sebenarnya sama seperti di javascript
+	- jadi kita bisa menggunkan kata kunci super untuk memanggil constructor yang terdapat di dalam si parent classnya
+
+51. Method Overriding:
+	- saat kita membuat child class kita bisa mendeklarasikan ulang method yang terdapat di parent class nya
+	- jika semua deklarasi method yang sama maka itu adalah method overriding. jadi kita mendeklarasikan ulang method yang sudah ada parent class nya
+	- pada kasus tertentu kadang-kadang kita sering melakukan hal ini. contohnya teman-teman mau mengubah kode yang memang aslinya yang ada di parent class nya
+
+52. Super Method:
+	- sama seperti di constructor saat kita membuat method overriding, kita juga bisa memanggil method yang sama seperti di parent class nya dengan menggunakan awalan nya adalah kata kunci super, lalu nanti diikuti dengan method yang ingin kita panggil 
+	- jadi intinya kalau teman-teman ingin mau memanggil method yang ada di dalam si parent class nya itu teman-teman tinggal gunakan kata kunci super lalu tanda .(titik) lalu nama methodnya apa, secara otomatis kita akan memanggil si parent class nya 
+
+53. Visibility:
+	- di java script atau juga di typescript, secara default setiap properties atau method, maka sifatnya adalah bisa di akses di dalam class atau bahkan diluar class (public)
+	- di dalam javascript kita mengenal visibility adalah private properties atau juga private method dimana kita bisa menggunakan prefix #, yang secara otomatis hanya bisa diakses di dalam si classnya
+	- di typescript fitur visibility ini lebih di permudah lagi, dengan mengenalkan tiga kata kunci baru yang pertama adalah public yang kedua private dan yang ketiga adalah proctected
+	- jadi nanti visibility nya ada banyak kalau di typescript ada public, private, dan juga proctected 
+	- nah pertayaan nya untuk apa? oke kita bahas :
+	- yang pertama adalah public: public artinya bisa diakses dimana pun nah Ketika teman-teman tidak menggunakan kata kunci public secara default berarti dia adalah public jadi public itu adalah visibility yang default nya, jadi saat teman-teman menggunakan properties bikin method di dalam class maka default dia adalah public artinya bisa di akses dimana pun  
+	- yang kedua private: private artinya hanya bisa di akses oleh class itu sendiri jadi cuman bisa di akses di dalam class nya, Ketika di luar class nya tidak bisa di akses, nah jadi ini dia cocok menyimpan informasi yang memang di butuhkan oleh classnya aja, jadi tidak bisa diubah dari luar atau juga tidak bisa diakses dari luar juga 
+	- yang ketiga proctected: protected artinya sama seperti private jadi dia cuman bisa di akses oleh class nya, tidak bisa di akses di luar tapi ada tambahan fiturnya, dia juga bisa di akses oleh turunan-turunan class nya. nah kalau private bahkan turunan nya pun boleh melihat nya atau mengakses nya
+
+54. Parameter Properties:
+	- kadang-kadang seringnya kita selalu membuat parameter di constructor yang hanya digunakan sebagai nilai yang nanti kita set ke dalam si properties nya 
+	- pada kasus seperti ini kita bisa mengunakan yang namanya parameter properties nya, nanti parameter yang kita buat di constructor nya itu akan secara otomatis dijadikan sebagai properties di dalam si class nya, jadi ini lebih gampang nya 
+	- untuk membuat parameter properties kita bisa langsung aja menambahkan visibility pada parameter di constructor nya
+
+55. Operator Instanceof:
+	- kadang-kadang ada kasus kita ingin mengecek apakah sebuah object yang kita buat dari class itu merupakan instance dari class tertentu atau bukan misalnya saja teman-teman pakai Ketika pendeklarasian tipe datanya itu menggunakan any berartikan semuanya bisa
+	- nah kadang-kadang kita ingin mengecek nih, apakah ini tipenya class a atau class b gitunya kita bisa melakukan instaceof 
+	- nah kenap tidak menggunakan operator typeof? kita tidak bisa menggunkan operator typeof, karena object dari class nya atau hasil dari instansiasi dari class, kalua kita gunkan operator typeof, hasilnya di akan menjadi string object ("object") jadi bukan namnya class nya makanya tidak bisa menggunkan typeof 
+	- operator instanceof itu akan mengembalikan Boolean, true artinya benar kalau object tersebut merupakan instance dari class yang kita tanyakan, atau false kalau teryata dia bukan.
+
+56. Polymorphism:
+	- polymorphism itu berasal dari Bahasa Yunani yang berarti banyak bentuk
+	- dalam oop, polymorphism adalah kemampuan sebuah object berubah bentuk menjadi bentuk lainnya 
+	- polymorphism itu erat hubungannya dengan inheritance atau pewarisan, karena walaupun di bisa berubah bentuk tapi biasanya sesuai dengan keturunannya
+	- saat kita membuat function bahkan method dengan parameter, kita juga bisa mengirim data polymorphism pada parameter tersebut
+	- misalnya kita membuat sebuah function dengan parameter dengan classnya adalah employee, nah kita bisa mengirim object dalam bentuk employee atau turunan-turunanya, misalnya manager ataupun vicepresident
+	- kenpa ini bisa dilakukan? hal ini karena manager dan vicepresident itu merupakan turunan dari employee, sehingga kita bisa mengirim data seluruh turunan dari employee
+	- kesimpulannya fitur polymorphism adalah fitur yang paling powerfull, karena jadi kita bisa mengirim tidak hanya object class tersebut tapi, juga turunan-turunanya
+
+57. Type Cast:
+	- di typescript dasar kita pernah belajar tentang type assertions ya, dimana kita bisa mengubah tipe data dari satu tipe data lainnya, yang lebih specific atau lebih detailnya
+	- nah ini juga bisa kita lakukan pada kasus method polymorphism
+	- nah ini kita juga bisa kombinasikan operator instaceof dan type assertions, kenapa kita kombinasikan menggunakn instanceof ? karena agar lebih aman.
+	- jadi kita cek dulu apakah contohnya walaupun parameternya adalah employee di cek dulu apakah dia employee? apakah dia vice president? atau apakah dia manager? nah seperti itu baru kita lakukan konversi
+	- saat kita melakukan perubahan tipe data itu teman-teman perlu ingat saat melakukan type cast, pastikan posisi child yang paling Bawah dilakukan pegecekan yang paling awal
+	- nah hal ini agar tidak terjadi saat melakukan kesalahan konversi
+	- contoh, kalau kita ubah posisi pengecekan instanceof manager dan juga vice president, maka Ketika kita mengirim vicepresident, dia akan berhenti di manager, kenapa? karena hasil dari instanceof itu pasti bernilai true, walaupun yang dikirimnya adalah vicepresident, kenapa? karena vicepresident itu, dia adalah turunan dari manager
+	- jadi instanceof itu dia tidak cuman ngecek class yang dibuatnya, tapi apakah dia turunannya atau bukan
+
+58. Abstract Class:
+	- abstract class itu merupakan deklarasi class yang belum selesai 
+	- abstract class itu boleh memiliki properties atau method yang abstract atau belum di buat implementasi detailnya, jadi contohnya nya kalau misalnya kita bikin sebuah properties, ya udah cuma deklarasi properties ini wajib atau nggak? opsional atau nggak? kalau method nya apa? paramerternya apa? return nya valuenya apa? untuk detail implemntasi body nya atau nilainya itu tidak wajib diisi 
+	- abstract class itu juga tidak bisa dibuat menjadi object menggunkan kata kunci new, jadi itu mirip seperti interface sebenarnya nya jadi dia itu biasanya harus diturunkan, nah bedanya apa dengan interface? kalau interface semuanya wajib abstract, artinya apa? semua properties dan juga methodnya wajib tidak boleh ada implemntasinya, nah sedangkan pada abstract class kita boleh sebagian ada implementasi nya, sebagian  abstract atau tidak implemtasinya, karena tujuan abstract itu agar nanti diturunkan lagi ke child class yang lebih detail implementasinya
+
+59. Static:
+	- static merupakan kata kunci yang bisa digunkan pada properties atau juga method di class, nah yang menyebabkan kalau kita tambahakan kata kunci static itu juga properties atau method tersebut bukan lagi Sebagian dari object yang di buat dari class tersebut
+	- static properties atau juga method itu juga bisa menyebabkan seakan-akan kita membuat global variable atau global function yang bisa di akses secara langsung tanpa harus membuat object dari class nya
+	- nah kita juga bisa menambahkan visibility nya pada static properties atau juga static method 
+	- biasannya static ini sering digunakan pada jenis class utility atau helper yang memang tidak butuh Instansiasi gtu nya, tapi langsung dibutuhkan misalnya propertiesnya atau juga method nya 
+	- static cocoknya untuk utilty class
+	- ada yang perlu di ingat static member hanya bisa mengakses static member lainnya, jadi maksudnya itu kalau teman-teman bikin static method itu tidak bisa mengakses method yang lain yang bukan static, jadi dia hanya bisa mengakses static method lainnya atau static properties lainnya, jadi yang non static itu tidak bisa di akses jadi teman-teman perlu perhatikan 
+	- nah sedangkan kebalikannya kalau yang non static member itu bisa mengakses static member secara langsung
+
+60. Class Relationship:
+	- karena implementasi dari object di typescript adalah sebenarnya javascript object
+	- jadi sebenarnya jika terdapat dua object walaupun berbeda classnya, scara misalanya properties dan function ya sama, maka itu semuanya dianggap semua strukturnya itu secara javascript object itu adalah sama
+	- pada kasus seperti ini, kita bisa membuat object untuk tipe data A, dengan membuat object dari tipe data B, asal secara properties dan juga methodnya itu dan deklarasinya itu sama. Nah kenapa ini bisa dilakukan di typescript? karena ujung-ujungya jadi javascript object, jadi otomatis bisa sebenarnya nah beda kalau di Bahasa pemrogrman lain contonya java, walaupun misalnya struktur clas nya, isinya sama tapi kalua dari dua class berbeda itu dianggap berbeda, nah kalau di typescript tidak seperti itunya, jadi dia mengikuti javascript. Jadi kalua dia compile teryata struktur isi classnya sama maka dia bisa dianggap sama
+	- TIDAK DI SARANKAN MEMBUAT ATAU MEMAKAI CLASS RELATIONSHIP DI TYPESCRIPT KARENA AKAN MEMBINGGUNGKAN PROGRAMMER
+
+61. Erorr Handling:
+	- sama seperti di javascript, di typescript pun mendukung erorr handlingnya menggunkan try catch
+	- nah cara penggunaan erorr handling di typescript itu sama saja seperti di javascript
+	- termasuk kalau kita ingin membuat class eror secara manual, itu juga kita bisa lakukannya di typescript dengan cara membuat class turunan dari erorr, jadi sama seperti di javascript
+
+62. Namespace:
+	- selain menggunkan javascript modules, di typescript ada cara lain untuk mengorganisir kode program kita, yaitu namanya adalah namespace
+	- namespace ini biasanya digunakan untuk mengorganisir kode Ketika dalam satu satu module terdapat banyak sekali kode, sehingga bisa kita Kelola di dalam satu module itu ke dalam namespace 
+	- nah kalau module kita anggap sebagai sebuah folder anggap saja name space adalah sub foldernya di dalam si module tersebut
+	- nah untuk membuat namespace, kita bisa gunakan kata kunci namespace, dan kita bisa tambahkan class atau function dan lain-lain di dalam namespace tersebut, nah tapi nanti Ketika kita mau aksesnya isi dari class atau function atau misalnya variable di dalam namepspace tersebut kita harus sebutkan dulu nama namespace nya di depan
