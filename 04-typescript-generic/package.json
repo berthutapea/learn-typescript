@@ -1,0 +1,26 @@
+{
+  "name": "04-typescript-generic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "author": "Gilbert Hutapea",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-typescript": "^7.25.7",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.13",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "typescript": "^5.6.2"
+  }
+}
