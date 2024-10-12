@@ -64,7 +64,7 @@ describe("Generic", () => {
     expect(entry.value).toBe("Hello");
   });
 
-  class SimpleGeneric<T> {
+  class SimpleGeneric<T = string> {
     private value?: T;
 
     setValue(value: T) {
