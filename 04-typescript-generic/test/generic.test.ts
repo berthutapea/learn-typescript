@@ -84,4 +84,42 @@ describe("Generic", () => {
 
     expect(simple.getValue()!.toUpperCase()).toBe("GILBERT");
   });
+
+  interface Employee {
+    id: string;
+    name: string;
+  }
+
+  interface Manager extends Employee {
+    totalEmployee: number;
+  }
+
+  interface VP extends Manager {
+    totalManager: number;
+  }
+
+  class EmployeeData<T extends Employee> {
+    constructor(public employee: T) {}
+  }
+
+  it("should support constraint", async () => {
+    const data1 = new EmployeeData<Employee>({
+      id: "100",
+      name: "Gilbert",
+    });
+    const data2 = new EmployeeData<Manager>({
+      id: "100",
+      name: "Gilbert",
+      totalEmployee: 100,
+    });
+    const data3 = new EmployeeData<VP>({
+      id: "100",
+      name: "Gilbert",
+      totalEmployee: 100,
+      totalManager: 10,
+    });
+
+    // const data4 = new EmployeeData<string>("Gilbert") //error
+    // const data4 = new EmployeeData<number>(100) //error
+  });
 });
