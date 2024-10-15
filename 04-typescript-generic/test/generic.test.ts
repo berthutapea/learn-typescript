@@ -122,4 +122,33 @@ describe("Generic", () => {
     // const data4 = new EmployeeData<string>("Gilbert") //error
     // const data4 = new EmployeeData<number>(100) //error
   });
+
+  it("should support array", async () => {
+    const array = new Array<string>();
+    array.push("Gilbert");
+    array.push("Hutapea");
+
+    expect(array[0]).toBe("Gilbert");
+    expect(array[1]).toBe("Hutapea");
+  });
+
+  it("should support set", async () => {
+    const set = new Set<string>();
+    set.add("Gilbert");
+    set.add("Hutapea");
+    set.add("Gilbert");
+
+    expect(set.size).toBe(2);
+    expect(set.has("Gilbert")).toBe(true);
+    expect(set.has("Hutapea")).toBe(true);
+  });
+
+  it("should support map", async () => {
+    const map = new Map<string, number>();
+    map.set("Gilbert", 100);
+    map.set("Hutapea", 90);
+
+    expect(map.get("Gilbert")).toBe(100);
+    expect(map.get("Hutapea")).toBe(90);
+  });
 });
