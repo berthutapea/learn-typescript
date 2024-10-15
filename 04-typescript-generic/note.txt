@@ -1,0 +1,67 @@
+Bagian 3 TypeScript Generic
+
+64. Slide dan Source Code:
+	- https://docs.google.com/presentation/d/1W-KKXfZOTPTsJPUYSQOTiNuusNyZn3l_HAVw4H9fON8/edit?usp=sharing
+	- Source Code : https://github.com/ProgrammerZamanNow/belajar-typescript-generic
+
+65. Pendahuluan:
+	- kelas javascript dari programmer zaman now
+	- kelas node js dari programmer zaman now
+	- typescript oop
+
+66. TypeScript Generic:
+	- jadi di dalam typescript itu ada fitur Namanya generic, generic itu adalah fitur dimana kita bisa membuat kode yang sama, harus di ingat kode yang sama dan bisa digunakan berulang kali dengan menggunakan tipe data yang berbeda
+	- nah sebelumnya saat kita ingin menggunakan tipe data yang bisa berbeda - beda nya untuk sebuah variabael contohnya untuk bisa parameter misalnya, untuk atribut misalnya atau bisa nya teman-teman  mau bikin return value di dalam function, nah itu kita biasanya menggunakan tipe data any kalau misalnya tipe ingin berubah - rubah, nah itu sebenarnya tidak baiknya kalau kita terlalu banyak menggunakan any, artinya apa? artinya yah percuma juga menggunakan typescript, jadi typescript itu kan lebih typeseftnya atau lebih amannya harusnya dibandingakan menggunakan  javascript, kalau teman-teman tetap banyak menggunakan tipe data any ya jatuhnya tidak aman lagi, nah kita tidak tahu, ini jenis datanya apa! nah muncul Namanya fitur yaitu generic, jadi dengan generic kita bisa membuat sebuah kode tapi kita bisa ubah Ketika menggunakan kodenya itu menggunakan tipe data yang kita mau, jadi akan tetap lebih aman
+	- jadi dengan menggunakan generic nya , kita bisa melakukan perubahan tipe data Ketika nanti digunakan, jadi saat kita membuat codenya kita akan bikin dalam kode generic, tapi saat kita gunakan kita bisa tentukan nantinya tipe data yang mau digunakan apa? jadi teman-teman bisa dua, tiga , empat menggunakan, teman-teman bisa tentukan tipe data yang berbeda-beda, nah sehingga ini lebih amannya karena kita tidak perlu menggunkan tipe data seperti contohnya any, nah nanti kita Bahas detail nya di bab-bab selajutnya
+
+67. Tanpa Generic: 
+	- jadi tanpa generic, saat kita contohnya ingin membuat class yang ada tipe data yang bisa berubah-ubah itu biasanya kita menggunkan tipe data any
+
+68. Generic Class:
+	- generic itu bisa ditambahkan Ketika kita membuat class, caranya kita bisa menggunakan tanda <> (diamond) setelah nama class nya, lalu di dalam diamon operatornya kita tentutkan tipe data generic nya bebas Namanya tapi biasanya kebanyakan menggunkan satu hurufnya, untuk apa? nanti data generic itu bisa di ubah-ubah Ketika nanti pembuatan classnya 
+	- jadi tipe data generic tersebut bisa digunakan pada class nya dan bisa di ubah tipenya Ketika kita nanti membuat object dari generic class tersebut 
+	- saat kita membuat object dari generic class, kita nanti wajib menentukan tipe data yang ingin kita gunakan untuk mengubah tipe data genericnya 
+	- jadi tipe data genric itu adalah tipe data yang nanti mendefinisikan , Ketika yang nanti membuat object nya, jadi saat buat classnya kita tidak tentukan ini tipenya apa?
+
+69. Generic Function:
+	- saat kita membuat tipe data di generic class, tipe data tersebut bisa digunakan di selruh bagian classnya, nah tapi ini kan typescript nya, kadang-kadang kita tidak membuat class, kadang-kadang kita hanya membuat sebuah function aja tanpa ada class
+	- jadi kadang kita tidak membuat class, kita hanya membuat function saja 
+	- generic juga bisa digunkan pada function untungnya, jadi kita bisa menggunkan cara yang sama dengan menempatkan tanda diamond <> setelah nama function, ingat nya kalau ini hanya function saja yang berdiri sendiri, kalau functionnya ada di dalam sebuah class itu disanranan didalam classnnya
+
+70. Multiple Generic Type:
+	- tipe data generic bisa kita tambahkan lebih dari satu, baik itu didalam class ataupun di dalam function, jadi sebelumnya kita cuman membuat satu tipe generic nya yaitu T, sbenarnya teman-teman bikin lebih dari satu yaitu bisa dua, tiga dan seterusnya
+	- nah untuk memisahkannya beberapa tipe data generic kita bisa gunankan tanda , (koma) misalnya di dalam si diamond operatornya <> jadi teman bisanya T, E, Z, dan seterusnya, jadi teman-teman bisa bebas menambahakan berapa banyak tipe generic nya, tapi ingat semakin banyak tipe genericnya yang teman-teman tambahakan, berarti teman-teman juga harus tentukan dari tiap tipe nya itu nanti mau diubah menjadi tipenya apa?
+
+71. Optional Generic Type:
+	- saat kita menggunkan generic type di dalam class, lalu misalnya kita menggunkan generic nya tersebut di parameter constructornya, itu kita tidak wajib sebenarnya meyebutkan tipe genericnya menggunkan diamond operator
+	- tyescript tersbut itu dia udah canggih jadi dia bisa otomatis untuk tipe yang kita gunakannya pada parameter si constructor nya
+	- tapi ketika kita tidak menggunakan tipe tersebut pada constructor nya, maka typescript tidak bisa mendekteksi secara otomatis
+
+72. Generic Parameter Default:
+	- saat kia menggunakan generic data type, kita bisa menentukan tipe data defaultnya kalau misalnya tidak disebutkan tipe datanya, nah sebelumnya kita sudah taunya, kalau tidak disebutkan tipe datany defaultnya adalah any,nah misalnya teman-teman tidak mau menggunakn tipe data any, tema-teman mau mau menggunkan tipe data lainnya
+	- kita bisa gunakan = lalu di ikutin tipe datanya defaultnya di dalam si operator diamondnya <>
+
+73. Generic Constraint:
+	- secara default saat menggunakn generic type, kita bebas menggunakan tipe data apapun
+	- namun kadang-kadang kita ingin membatasi jenis data yang diperbolehkan misalnya
+	- nah kita bisa menggunakan perintah extendsnya lalu ikuti tipe datanya pada operator diamondnya <> yang artinya kalau kita tambahkan extends tipe datanya, artinya hanya tipe data yang kita sebutkan di dalam extends dan juga tipe data turunannya saja yang bisa kita gunakan untuk nanti menggantikan tipe data generic nya
+
+74. Generic Collection:
+	- nah sebelumnya kita pernah menggunakan tipe data arraynya, dimana array sebenarnya adalah tipe data generic, oleh karena itu saat kita menggunkan array itu kita tentukan tipe arraynya itu apa isinya
+	- nah selain arrary, ada tipe data collection lainnya, collection itu artinya kumpulan data, nah hampir semua collection di typescript itu tipenya adalah generic, nah sebenarnya collection disini adalah fitur dari bawahan javascriptnya, tapi saat diubah ke typescript dia otomatis mendukung generic, jadi tipe datanya bisa diubah kira-kira tipenya apa, jadi ini akan lebih aman dibandingkan mengunakan tipe data yang any
+	- contohnya adalah set<T>, ini adalah tipe data collection yang isinya adalah data unique dan tidak ada jaminan urutan data juga, jadi saat teman-teman masukan data, itu selalu datanya akan di set sebagai unique, jadi teman-teman masukan lebih dari satu data yang sama maksudnya itu diakan di terimanya cumin satu saja, beda dengan arrary, kalau array itu kalau data sama diterima terus, kalau set tidak
+	- nah ada juga map<K,V> adalah kombinasi key dan value, jadi kalau misalnya array itu key nya atau index nya menngunakan number kalau map itu key itu boleh bebas apapun itu tipe datanya, karena dia adalah generic jadi teman-teman bisa ubah key itu misalnya string kah atau number kah atau boleean dan lain-lain
+	- jadi generic type array <T> itu sebenarnya merupakan representasi dari tipe data arrary di javascript
+	- oleh karena itu sebenarnya cara penggunaanya sama persis dengan sepeti array di javascript, seperti menambah data, menghapus data, mengambil data itu caranya sebenarnya sama
+	- generic type set <T> ini sebenarnya merupakan representasi dari tipe data set di javascript 
+	- nah oleh karena itu, cara penggunaanya pun sama seperti set di javascript, nah ini kita pernah bahas juga di kelas javascript
+	- terakhir adalah map, jadi generic map <K,V> ini sebenarnya merupakan representasi tipe data map atau key valuenya di dalam si javascript
+	- nah cara penggunannya sama seperti di map javascript, ini juga pernah kita bahas di kelas javascriptnya
+
+75. Generic Promise:
+	- saat kita menggunakan javascript async, kita sering ketemu dengan yang Namanya promise, nah saat kita menggunakan javascript mungkin kita tidak tentukannya ada tipe data promise, nah tapi kalau kita membuat kode typescript biasanya kita akan tentukan return value yang misalnya codenya asnycronus itu menggunakan promisenya, nah jadi sekarang pertanyaannya gimana nih kalau misalnya kita mau menggunakan fitur promise ininya atau javascript asnyc ini di typescript
+	- jadi typescript juga menggunakan generic sebagai representasi untuk tipe data promise <T> jadi ada promise dan generic type nya adalah T, nah teman-teman bisa ganti, jadi ini akan lebih aman, karena kebalikannya sudah promise dan ditentukan tipe datanya, jadi kita tidak perlu binggung ini promise ini return valuenya apa seperti itu
+	- oleh karena itu, Ketika kita membuat nanti function yang mengembalikan promise, kita bisa tentukan tipe data apa yang akan dikembalikan oleh si promise tersebut
+
+76. Materi Selanjutnya:
+	- typescript validation
