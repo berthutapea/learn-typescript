@@ -40,7 +40,7 @@ describe("zod", () => {
     console.info(price);
   });
 
-  it("should suport date validation", async () => {
+  it("should support date validation", async () => {
     const birthDateSchema = z.coerce
       .date()
       .min(new Date(1980, 0, 1))
