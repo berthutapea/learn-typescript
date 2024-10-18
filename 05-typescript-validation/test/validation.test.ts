@@ -79,4 +79,48 @@ describe("zod", () => {
       console.error(result.error);
     }
   });
+
+  it("should can validate object", async () => {
+    const loginSchema = z.object({
+      username: z.string().email(),
+      password: z.string().min(6).max(20),
+    });
+
+    const request = {
+      username: "gilbert@test.com",
+      password: "rahasia",
+      ignore: "ignore",
+      name: "Gilbert Hutapea",
+    };
+
+    const result = loginSchema.parse(request);
+    console.info(result);
+  });
+
+  it("should support nested object", async () => {
+    const createUserSchema = z.object({
+      id: z.string().max(100),
+      name: z.string().max(100),
+      address: z.object({
+        street: z.string().max(100),
+        city: z.string().max(100),
+        zip: z.string().max(10),
+        country: z.string().max(100),
+      }),
+    });
+
+    const request = {
+      id: "123",
+      name: "Gilbert",
+      address: {
+        street: "Jalan Belum Jadi",
+        city: "Jakarta",
+        zip: "12345",
+        country: "Indonesia",
+      },
+    };
+
+    const result = createUserSchema.parse(request);
+    console.info(result);
+  });
 });
