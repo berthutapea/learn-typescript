@@ -39,4 +39,17 @@ describe("zod", () => {
     const price = priceSchema.parse("100");
     console.info(price);
   });
+
+  it("should suport date validation", async () => {
+    const birthDateSchema = z.coerce
+      .date()
+      .min(new Date(1980, 0, 1))
+      .max(new Date(2020, 0, 1));
+
+    const birthDate = birthDateSchema.parse("1990-01-01");
+    console.info(birthDate);
+
+    const birthDate2 = birthDateSchema.parse(new Date(1990, 0, 1));
+    console.info(birthDate2);
+  });
 });
