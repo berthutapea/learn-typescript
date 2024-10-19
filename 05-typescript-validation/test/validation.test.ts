@@ -197,4 +197,25 @@ describe("zod", () => {
     const result = registerSchema.parse(request);
     console.info(result);
   });
+
+  it("should support transform email", async () => {
+    const schema = z
+      .string()
+      .email()
+      .transform((data) => {
+        return data.toUpperCase();
+      });
+
+    const result = schema.parse("gilbert@example.com");
+    console.info(result);
+  });
+
+  it("should support transform username space", async () => {
+    const schema = z.string().transform((data) => {
+      return data.toUpperCase().trim();
+    });
+
+    const result = schema.parse("          gilbert   ");
+    console.info(result);
+  });
 });
