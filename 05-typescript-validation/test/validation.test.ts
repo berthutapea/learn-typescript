@@ -157,4 +157,26 @@ describe("zod", () => {
     const result: Map<string, string> = schema.parse(request);
     console.info(result);
   });
+
+  it("should can validate object with message", async () => {
+    const loginSchema = z.object({
+      username: z.string().email("username harus email"),
+      password: z
+        .string()
+        .min(6, "password min harus 6 karakter")
+        .max(20, "password max harus 20 karakter"),
+    });
+
+    const request = {
+      username: "gilbert",
+      password: "ra",
+    };
+
+    try {
+      const result = loginSchema.parse(request);
+      console.info(result);
+    } catch (err) {
+      console.error(err);
+    }
+  });
 });
