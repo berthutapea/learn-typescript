@@ -1,0 +1,79 @@
+77. Slide dan Source Code: 
+	- Slide : https://docs.google.com/presentation/d/143kuojN0PcyronTv1N59fkCMb7WWhfaPQwosN8xdleg/edit?usp=sharing
+	- Source Code : https://github.com/ProgrammerZamanNow/belajar-typescript-validation
+
+78. Pendahuluan:
+	- kelas javascript dari programmer zaman now
+	- kelas nodejs dari programmer zaman now 
+	- typescript generic
+
+79. Pengenalan Validation:
+	- saat kita membuat aplikasi, validasi atau tahapan atau proses validasi itu salah satu hal yang sangat penting yang harus kita lakukan, bahkan di bilang ini harus wajibnya kita lakukan
+	- validasi itu memastikan bahwa data sudah dalam keadaan benar da sesuai yang kita mau sebelum data itu di proses contohnya misalnya teman-teman mau membuat aplikasi untuk menerima data misalnya produk, atau data sales atau data customer itu kan aa yang harus di kirimkan oleh pengguna itukan harus di pastikan bahwa data sudah benar atau sudah sesuai yang kita mau contohnya kalau email ya harus format email yang benar, format telpon harus dengan format telpon yang benar dll
+	- validasi dilakukan untuk menjaga agar datanya tetap kosnsisten dan tidak rusak alias tetap baik
+	- validasi bisanya dilakukan di kode aplikasi yang kita buat atau juga bisa di constraint di table sebenarnya, jadi kalau teman-teman sudah belajar database contohnya MySQL atau postgree kita punya yang Namanya constrint nya di dalam database contohnya ada yang not null, unique dll, tapi kadang-kadang ada yang cukup kompleks email, no telepon, Panjang minimal dan maksimal, nah hal tersebut mungkin tidak bisa kita lakukan di database, nah jadi kita perlu lakukan di aplikasi 
+	- nah sekarang pertayaanya bagaimana proses validasi di typescript? nah sebenarnya typescript tersenut sayangnya dia tidak menyediakan library untuk melakukan validasi, oleh karena itu kita mau melakukan validasi di typescript kita harus lakukan secara manual, jadi sebenarnya mirip seperti di nodejs, jadi tidak ada standar library atau package yang digunakan untuk melakukan validasi, tapi tenang ajanya untungnya banyak library yang di buat oleh komunitas programmer typescript, nah yang bisa kita gunakannya untuk mempermudah saat kita mau melakukan proses validasi, nah contohnya saat kita belajar menggunakan javascript dengan node js kita tau ada library Namanya zoy nya 
+	- untuk typescript salah satu library yang popular untuk melakukan validasi yang mirip cara penggunaanya yang seperti zoy itu adalah zod website nya : https://zod.dev/
+	- nah di kelas ini kita akan focus menggunakan library zod ini untuk belajar melakukan validasi di typescript
+
+80. Membuat Project
+	- Buat folder belajar-typescript-validation
+	- npm init
+	- Buka package.json, dan tambah type module
+	- npm install --save-dev jest @types/jest
+	- npm install --save-dev babel-jest @babel/preset-env
+	- npm install --save-dev typescript
+	- npx tsc --init
+	- Semua konfigurasi akan dibuat di file tsconfig.json
+	- Ubah “module” dari “commonjs” menjadi “ES6”
+	- Ubah "moduleResolution" menjadi "Node"
+	- npm install --save-dev @babel/preset-typescript
+	- npm install --save-dev @jest/globals
+	- npm install zod
+
+81. Validation
+	- jadi zod itu mendukung validasi untuk banyak tipe data di typescript, contohnya seperti string, number, Boolean, dll
+	- untuk menggunakan zod kita cukup import yang Namanya z dari package zod
+	- selajutnya kita bisa menggunakan method-method yang ada di dalam z ini yang sesuai tipe datanya seperti string, number, Boolean dll, nanti akan di bahas secara bertahap
+	- jadi hal pertama yang perlu kita lakukanuntuk melakukan validasi adalah membuat schemanya 
+	- schema itu adalah aturan-aturan yang sudah kita tentukan
+	- setelah kita sudah mebuat schema-schemanya, nah baru selajutnya kita bisa melakukan validasi data menggunakan schema tersebut, cara validasinya kita menggunakan function yang Namanya parse dari schemanya
+
+82. Konversi Tipe Data
+	- saat kita membuat schema untuk tipe data contohnya seperti string number atau juga Boolean, kita harus menggunakan parse() menggunakan tipe yang benar-benar sama, jadi kalau string ya string, dan jikalau number ya number atau Boolean ya Boolean, jadi tidak bisa berbeda contohnya teman-teman masukkan Boolean kedalam string atau string ke dalam number itu tidak bisa, jadi tipenya juga harus sama 
+	- kadang-kadang ada kasus input dari pengguna itu bisa menggunakan tipe data yang berbeda, contohnya inputnya berupa number tapi teryata yang dimasukkan nya itu string seperti "1234", atau juga input Boolean tapi sebenarnya itu yang di inputkan berupa string "true"
+	- nah untunngnya zod memiliki object yang namanya coerce yang bisa di gunakan untuk melakukan konversi tipe data secara otomatis, jadi dia bisa melakukan atau mencoba melakukan konversi tipe datanya, kalau bisa nya suskses dan kalau memang tidak bisa berartinya error, jadi nanti saat kita mau kita berpikir contohnya inputnya adalah Boolean atau number tapi teryata kita pengen bisa menerima dalam bentuk string, nanti pengennya di konversi secara otomatis, misalnya jadi Boolean atau number nah kota bisa gunakan si property coerce ini yang ada di dalam zod
+
+83. Date Validation:
+	- zod juga bisa digunakan untuk melakukan validasi tipe datanya yaitu date 
+
+84. Validation Error:
+	- kalau terjadi error karena misalnya datanya tidak valid maka hasil zod itu akan melakukan throw zod error, jadi saat teman-teman menggunakan parse nya dia akan melakuakan throw error kalau misalnya datanya tidak valid jadi error nya adalah zod error Namanya
+
+85. Object Validation:
+	- saat kita membuat aplikasi sering sekali kita membuat yang Namanya javascript object
+	- untungnya zod juga bisa digunakan untuk melakukan validasi javascript object sehingga saat kita membuatnya itu otomatis mempermudah nya disbanding kita melakukan validasi satu-persatu, jadi kita bisa sekaligus melakukan validasi kedalam si js object nya 
+	- zod juga bisa digunakan untuk memvalidasi nested object
+	- jadisaat kita ingin memvalidasi nested object kita harus tentukan object schema nya juga
+
+86. Collection Validation:
+	- selain object kita tahu dalam typescript itu ada tipe data collection contohnya ada seperti array, set dan map nah itu juga kita bisa lakukan nya validasi terhadap tipe collection
+
+87. Custom Validation Message:
+	- saat kita mengunakan zod nya, secara default sebenarnya sudah terdapat message errornya
+	- nah tapi, Ketika kita ingin mngubah error message nya, kita bisa ubah Ketika menggunakan method di dalam schemanya, contohnya Ketika teman-teman menggunakan methodnya min gtu nya, nah teman-teman isa tentukan error ny kira-kira apa atau masknya apa, dll
+
+88. Optional Validation:
+	- secara default saat kita membuat schema data itu akan selalu wajib diisi, jadi tidak boleh diisi
+	- tapi kan kadang-kadang mungkin kita butuh memang data yang tidak wajib atau namnaya adalah optional
+	- nah kita bisa menggunakan yang Namanya method optional() pada schema kalua teman-teman ingin membuat schema tersebut menjadi optional datanya, artinya filed nya itu atau datanya itu tidak wajib, jadi Ketika dikirim undefined itu tetap boleh anah defaulnnya tidak bolehnya tapi kalua teman-teman menambahkan optional otomatis dia jadi boleh
+
+89. Transform:
+	- saat membuat schema nya itu terdapat function yang Namanya adalah function nah transform ini bisa kita gunakan untuk melakukan tranformasi dari data yang setelah selesai di parse gitu nya, stelah selesai di proeses validasi kita mau mengubah menjadi data apa? seperti itu
+
+90. Custom Validation:
+	- saat menggunakan transform(), kita bisa menambahkan parameter kedua sebenarnya yaitu refinement context, nah dimana bisa digunakan kalau untuk menambahkan issue jika terjadi error atau masalah
+	- hal ini otomatis bisa digunakan sebagai menjadi function transform() ini atau method transform() ini bisa kita gunakan sebagai
+
+91. Penutup:
+	- silahkan digunakan libary zod untuk validation jangan lakukan lagi manual seperti if dan else
