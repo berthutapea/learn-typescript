@@ -5,7 +5,7 @@ CREATE TABLE `addresses` (
     `city` VARCHAR(100) NULL,
     `province` VARCHAR(100) NULL,
     `country` VARCHAR(100) NOT NULL,
-    `postal_cde` VARCHAR(10) NOT NULL,
+    `postal_code` VARCHAR(10) NOT NULL,
     `contact_id` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
