@@ -1,0 +1,175 @@
+93. Pendahuluan:
+	- Kelas JavaScript dari Programmer Zaman Now
+	- Kelas MySQL dari Programmer Zaman Now 
+	- Kelas NodeJS dari Programmer Zaman Now
+	- Kelas TypeScript dari Programmer Zaman Now
+
+94. Requirement:
+	- nah di kelas ini kita akan coba membuat restful api untuk contact management, jadi management data contact nya, jadi sederhana aja yang penting nanti teman-teman bakal tagertnya ngerti konsep bagaimana cara membuat restful apinya menggunakan typescript, nah dimana restful api nya akan memiliki 3 fitur Utama, yaitu:
+	- yang pertama adalah user management, jadi nanti bisa registrasi, login, logout dll, jadi sebelum kita buat contact nya nanti kita bisa ada Namanya user management nya jadi nanti tiap user bisa registrasi dulu, jadi nanti contact itu dimiliki oleh usernya, jadi nanti tidak akan melihat satu sama lainnya data contactnya jadi, mirip kita misalnya kita mau bikin email, account kita registrasi dari google kita punya akun sendiri, nah termasuk yang lain juga 
+	- nah nanti seteah user management dibuat, kita buat juga contact management nya, jadi nanti data contactnya itu nanti ikutin data usernya, jadi nanti saya punya contact sendiri misalnya, contact teman-teman saya dll nah nanti juga yang lain juga pengguna yang lain atau user yang lain juga punya contact nya masing-masing 
+	- nah setelah itu didalam conact kita juga menambahkan alamat-alamat untuk contactnya, nah jadi secara garis besar jadi kita 3 buah fitur besar, jadu yang pertama user management nya, nah nanti kita buat contact management nya dan yang terakhir kita buat juga addres managementnya, nah jadi ini requirement atau kebutuhannya, jadi kita akan bahas detail nya di materi-materi selajutnya detail - detail user managementnya apa? contact management nya apa? dan juga addres management nya seperti apa?
+
+95. User Management Requirement:
+	- kita tidak akan buat yang begitu kompleks untuk usernya jadi kalau teman-teman ingin mau menambahkan yang lebih kompleks silahkan aja, kita akan buat yang sederhananya
+	- yang pertama kita akan bahas tentang user datanya, jadi data user itu kira-kira apa aja sih? nah yang pertama kita akan menambahkan username habis itu password nya dan yang ketiga adalah name nya kalua teman-teman ingin menambahkan lainnya silahkan ajanya ini bebas bisa teman-teman improvisasinya untuk menambahkan datanya tapi yang kita buat nanti tiga data ini aja yaitu usernamenya dan juga passwordnya dan nanti usernamenya uniknya lalu ada passwordnya juga jadi nanti setiap login itu harus menggunakan password dan nanti juga ada Namanya atau nanti nama si usernya 
+	- kira-kira api apa aja yang dibuat? yang pertama api register user, nah setelah rgister user nanti kita buat api login usernya agar setelah registrasi usernya bisa login, lalu ada update user nya agar nanti si usernya update Namanya atau bahkan ubah passwordnya, lalu ada get usernya untuk dapat user detailnya dan juga yang terakhir ada logout usernya jadi kurang lebih ada sekitar 5 api yang nanti akan dibuat untuk user managementnya
+
+96. Contact Management Requirement:
+	- data contact yang akan dibuat yaitu ada 4:
+	- yang pertama first name
+	- yang kedua last name
+	- yang ketiga email
+	- dan yang keempat phone
+	- api contact yang akan dibuat yaitu ada 5:
+	- yang pertama create contact
+	- yang kedua update contact
+	- yang ketiga get contact
+	- yang keempat search contact
+	- dan yang kelima remove contact
+
+97. Address Management Requirement:
+	- data address yang akan dibuat yaitu ada 5:
+	- yang pertama street
+	- yang kedua city
+	- yang ketiga province
+	- yang keempat country
+	- dan yang kelima postal code
+	- api contact yang akan dibuat yaitu ada 5:
+	- yang pertama create address
+	- yang kedua update address
+	- yang ketiga get address
+	- yang keempat list address
+	- dan yang kelima remove address
+
+98. Membuat Project: 
+	- Buat folder belajar-typescript-restful-api
+	- npm init
+	- npm install zod
+	- npm install express
+	- npm install --save-dev @types/express
+	- npm install --save-dev prisma
+	- npm install winston
+	- npm install bcrypt
+	- npm install --save-dev @types/bcrypt
+	- npm install --save-dev jest @types/jes
+	- npm install --save-dev babel-jest @babel/preset-env
+	- npm install --save-dev @babel/preset-typescript
+	- npm install --save-dev @jest/globals
+	- npm install --save-dev supertest @types/supertest
+	- npm install --save-dev typescript
+	- npx tsc --init
+	- Semua konfigurasi akan dibuat di file tsconfig.json
+	- Ubah “module” menjadi “commonjs”
+	- Ubah "moduleResolution" menjadi "Node"
+	- Tambahkan include src/**/*
+	- Ubah outDir menjadi “./dist”
+
+99. User API Spec:
+	- sebalum kita membuat aplikasinya ada baiknya di awal itu kita membuat Namanya api spec nya, jadi api specication, keuntungannya apa Ketika kita mebuat api spec? keuntungan nya adalah kita akan selalu membuat aplikasi nya mengikuti kontrak dari si api nya yang kita buat nya, jadi api spec itu adalah api speciation yang nanti kespakatan antara tim fronted misalnya atau tim mobile dan juga tim backend, jadi nanti semua programmer, entah itu backend atau juga frontend atau juga mobile nanti mereka cukup mengikuti kira-kira spec nya seperti apa untuk kontrak api nya jadi tidak perlu biggung laginya
+	- kita akan membuat user api spec ada banyak format sebenarnya ada open apinya dan lain-lain, nah agar teman-teman lebih mudah kita akan membuat dokumentasi mark down nya, jadi nanti bikinnya sederhana aja dan simple
+
+100. Contact API Spec:
+	- buat dokumentasi megenai contact api specification
+
+101. Adresss API Spec:
+	- buat dokumentasi megenai address api specification
+
+102. Setup Database:
+	- buat lah database belajar_typescript_restful_api
+	- npx prisma ini
+
+103. User Model:
+	- membuat model user atau table users meggunakan prisma
+	- npx prisma migrate dev
+
+104. Contact Model:
+	- membuat model contacts atau table contacts meggunakan prisma
+	- npx prisma migrate dev
+
+105. Address Model:
+	- membuat model address atau table address meggunakan prisma
+	- npx prisma migrate dev
+
+106. Setup Project:
+	- kode setup prisma client
+	- kode setup winston
+	- kode setup web
+
+107. Register User API:
+	- yang pertama yang pastinya kita buat folder controller jadi nanti semua request itu akan masuk ke bagian controller jadi controller itu nanti isinya adalah request untuk handler webnya, nah nanti dari folder controller ini dia hanya akan menerima requestnya, nanti semua bisnis logic nya itu nanti akan disimpan di lyer Namanya adalah service atau folder Namanya service jadi nanti semuanya nanti akan di simpan di folder service ini, jadi nanti logic ke database dll itu semuanya di simpan di folder service, jadi controller itu cuman menerima request mengirimkan datanya ke service, menerima data ke servicenya lalu di kembalikan lagi ke response webnya, jadi simple banget dari isi controllernya
+	- nah pertukaran data dari misalnya yang dikirim oleh request dan juga responsenya itu kan nanti adanya datanya, nanti kita akan simpan datanya itu dalam bentuk model di dalam folder model nanti kita akan bikin folder Namanya model, jadi nanti request dan response nya itu agar lebih rapi kita akan definisikan di model
+	- nah saat kita model itu kita kirim ke service misalnya contohnya registrasi, login dll itu kan nanti perlukan validasi nya, nah untuk validasinya kita akan bikin sebuah folder Namanya validation jadi nanti data semua validasinya aturan validasinya kita akan simpan di folder validation, jadi agar lebih rapi nya.
+	- alur pembuatan nya pertama buat user model, baru kedua user service, baru ketiga kita ke user validation, baru keempat kita validation baru kelima kita Kembali lagi user service, baru kita keenam ke response error di folder error, baru kita ke tujuh kita Kembali lagi ke folder service di file user service untuk menambhakan response error, baru ke delapan kita ke folder model lagi ke file user mode yaitu menambahkan to user reponse, baru kesembilan kita ke user service lagi menambhakan logic to user response dari user model di folder model
+
+108. Login User API:
+	- yang pertama kita mulai dari user model nya di dalam folder model untuk bikin model login terlebih dahulunya, jadi yang kedua kita ke user service di dalam folder service untuk buat logicnya, jadi setelah itu yang Ketiga kita ke user validation di dalam folder validation untuk membuat validasinya, jadi setelah itu keempat kita ke user service di dalam folder service untuk cek databasenya dan buat logic untuk login username dan password nya Ketika usernya login cek berdasarkan username dan password nya salah, jadi setelah itu kelima kita ke user controller di dalam folder controller membuat data response sukses nya untuk login, jadi setelah itu keenam kita ke public api di dalam folder route untuk membuat route login nya, nah setelah itu yang ketujuh dan terakhir implementasi testing ny di folder test untuk melakukan testing
+	- focus untuk melakukan bisnis logic kita Ketika sudah melakukan seremony (di folder service)
+
+109. Get User API:
+	- yang pertama kita ke auth middleware di dalam folder middleware yaitu melakukan token untuk login dan yang kedua ke user request di dalam folder type untuk melakukan tipe khuhus untuk melakukan request dari expert untuk data user setelah itu Kembali ke auth middleware ganti parameter request dari exper ke user request di folder type yang sudah kita buat, setelah kita ke api di dalam folder route untuk pembuatan api user yang sudah login, setelah itu kita ke file web di dalam folder app untuk menambhakan apiRouter,setelah itu kita buat bisnis logic di user service di dalam folder service, setelah itu kita ke user controller di dalam folder controller untuk response suksesnya, setelah itu Kembali lagi api di dalam folder route untuk menambahkan api router user nya, setelah yang implementasi testing ny di folder test untuk melakukan testing
+
+110. Update User API:
+	- yang pertama kali yang dilakukan yaitu di user request di folder model focus pertama kali di bagian modelnya, yang kedua yang dilakukan yaitu di user service di folder service, setelah itu yang ketiga kita ke user validasi di folder validation membuat validasi nya, selajutnnya ke empat Kembali lagi ke user request di folder service untuk cek atau membuat bisnis logicnya, setelah itu kelima kita ke user controller di dalam folder controller, selajutnya kita ke api di folder router membuat sebuah route api nya, setelah itu yang terakhir membuat unit testing nya
+
+111. Logout User API:
+	- tidak butuh model karena tidak butuh request body jadi kita langsung ke user service di dalam folder service untuk membuat logic nya, setelah itu kebagian user controller nya yang ada didalam folder controller nya, setelah itu kita api nya di dalam folder route untuk membuat route api logoutnya,  setelah itu yang terakhir membuat unit testing nya
+
+112. Create Contact API:
+	- Langkah pertama focus ke folder model terlebih dahulu, setelah itu yang kedua ke contact sevice di dalam folder service, setelah itu ke contact validation di folder validation, selajutnya Kembali lagi contact service untuk implemntasi logic di contactnya di dalam folder service, selajutnya masuk bagian folder controller nya, selajutnya kita tinggal tambahkan routingnya di dalam folder route, selajutnya yang terkahir kita tinggal membuat unit testingnya
+	- cara debug untuk error : logger.info(contact)
+	- cara lihat data yang error atau kosong : logger.debug("response : " + JSON.stringify(response))
+	- cara lihat data yang error atau kosong : logger.debug("record : " +JSON.stringify(contact))
+
+113. Get Contact API:
+	- Langkah pertama focus ke contact service di bagian folder service, selajutnya kedua masuk bagian ke controllernya, selajutnya focus ke route apinya di folder route nya, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+114. Get Contact API:
+	- Langkah pertama seperti bisa kita fokus ke contact model di bagian folder modelnya, selajutnya seperti bia kita melakukan validasi terlebih dahulu di dalam folder validation, selajutnya di contact service di bagian folder service, selajutnya kita ke contact controller di bagian folder controllernya, selajutnya kita route api nya di bagian folder routenya, selajutnya yang terkahir kita tinggal membuat unit testingnya
+	- debug contact : logger.debug("contact : " + JSON.stringify(contact))
+	- debug user : logger.debug("user" + JSON.stringify(user));
+	- debug request : logger.debug("request" + JSON.stringify(request));
+
+115. Remove Contact API:
+	- untuk remove nggak perlu ada modelnya dan nggak perlu ada validasinya karena nggak ada object nya kita focus ke contact service di bagian folder service, selajutnya ke contact controller di bagian folder controller, Langkah seljutnya ke api nya membat route di dalam folder route, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+116. Search Contact API:
+	- seperti biasa kita focus ke model dulu ke contact model di folder model, selajutnya kita melakuka validasi di contact validation di folder validation, selajutnya kita ke contact servicenya di dalam folder service, masalahnya di datanya ada data paging jadi kita buat page di dalam folder model, kita balik lagi ke contact service di dalam folder service, selajutnya focus ke contact controller di bagian folder controllernya, selajutnya ke membuat sebuah route apinya di dalam folder route nya, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+117. Create Address API:
+	- seperti biasa kita buat dan focus ke model terlebih dahulu, setelah itu kita buat address validationnya di dalam folder validation, selajutnya kita buat address service nya di dalam folder service nya, setelah itu focus ke controllernya, setelah itu kita buat address api nya di dalam folder api, selajutnya yang terkahir kita tinggal membuat unit testingnya
+	- npx prisma migrate dev
+	- change_postal_code_column
+	- npx prisma generate 
+
+118. Get Address API:
+	- untuk get address kita tidak perlu buat modelnya jadi Langkah pertama kita focus di address service di bagian folder service
+	- Ketika object di dalam object dalam object atau parameter nya kebayakan teman-teman bungkus dalam satu sebuah object, jadi kita bungkus aja dalam satu object yang Namanya get addres request di dalam file address model di bagian folder model, enaknya tuh setelah kita buat oject type nya di model kita juga bisa buat validasi juga di addres validation di folder validaton, jadi di dalam addres service dibagian get kita bisa  bungkus parameternya, setelah itu kita masuk focus ke address controllernya di bagian folder controllernya, setelah itu kita tambahkan ke routingnya di dalam folder route nya, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+119. Update Address API:
+	- oke kita pertama kali taitu focus di bagian modelnya, setelah itu kita focus di validation nya di folder validationnya, setelah itu kita focus ke address service nya di dalam folder service nya, setelah itu ke address controller di bagian folder controllernay, stelah itu kita buat routing nya di api di bagian folder route nya, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+120. Remove Address API:
+	- oke remove address api model nya itu hampir sama dengan get address api di folder model, stelah itu kita ke address validation di bagian folder validation, setelah itu kita masuk ke address service di bagian folder service nya, setelah itu kita ke address controller di bagian folder address controllernya, stelah itu pindah ke folder route untuk membuat routing apinya, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+121. List Address API:
+	- pertama kali kita langsung focus ke address service di folder service, setlah itu Langkah kedua kita langsung ke address controller di bagian folder controller, setelah itu Langkah selajunty kita membuat routing di dalam folder route, selajutnya yang terkahir kita tinggal membuat unit testingnya
+
+122. Distribution File:
+	- untuk menjalankan aplikasi nya di dalam dolder src kita buat sebuah file main.ts untuk mejalankan sebuah aplikasi nya, untuk menjalankan nya kita compile semuanya ke javascript menggunakan perintah npm run build
+	- Create .env file
+	- DATABASE_URL="mysql://root:@localhost:3306/belajar_typescript_restful_api"
+	- npm install
+	- npm prisma migrate dev
+	- npm prisma generate
+	- npm run build
+	- npm run start
+
+123. Manual Test:
+	- pastikan aplikasi semuanya berjalan dengan perintah npm run start
+	- menggunakan tools postman
+	- "test": "jest --runInBand",
+	- npm run test
+
+124. Penutup:
+	- Ditunggu update terbaru dari fitur typescript
