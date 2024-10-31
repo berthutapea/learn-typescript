@@ -1,0 +1,753 @@
+{
+	"info": {
+		"_postman_id": "6e999f15-fee5-44cb-8d74-4622e0e29845",
+		"name": "learn-typescript-restful-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26058900"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"gilbert\",\r\n  \"password\": \"gilbert123\",\r\n  \"name\": \"Gilbert\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"gilbert\",\r\n  \"password\": \"rahasia\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/current",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "9695143e-b8d3-4f15-95ad-a5c32822b2fd",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/current",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Name",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-API-TOKEN",
+								"value": "32859a0f-aac8-473f-9d27-2243c4f737f3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gilbert Hutapea\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/current",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Password",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "32859a0f-aac8-473f-9d27-2243c4f737f3",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"rahasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/users/current",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Create Contact",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Budi Hutapea\",\r\n    \"last_name\": \"Ganteng\",\r\n    \"email\": \"gilbert@example.com\",\r\n    \"phone\": \"0823614775\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Gilbert\",\r\n    \"last_name\": \"Ganteng\",\r\n    \"email\": \"gilbert@example.com\",\r\n    \"phone\": \"0823614775\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/320",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"320"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Contact",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/320",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"320"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/320",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"320"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Contact",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Contact Size 1",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts?size=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Contact Size 1 & Page 2",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts?size=1&page=2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Contact Size 1 & Page 3",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts?size=1&page=3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Contact Email",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts?email=gilbert",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "gilbert"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Contact Name",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts?name=gilbert",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "gilbert"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "Add Address",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Jalan A\",\r\n    \"city\": \"Jakarta\",\r\n    \"province\": \"DKI Jakarta\",\r\n    \"country\": \"Indonesia\",\r\n    \"postal_code\": \"13123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/323/addresses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"323",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Address",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/323/addresses/73",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"323",
+								"addresses",
+								"73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Jalan C\",\r\n    \"city\": \"Bandung\",\r\n    \"province\": \"Jawa Barat\",\r\n    \"country\": \"Indonesia\",\r\n    \"postal_code\": \"34534\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/323/addresses/73",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"323",
+								"addresses",
+								"73"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Address",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/323/addresses",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"323",
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Address",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-TOKEN",
+								"value": "b961d1de-50a8-47e4-b2d8-930a919bfa1f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/contacts/323/addresses/73",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"contacts",
+								"323",
+								"addresses",
+								"73"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
